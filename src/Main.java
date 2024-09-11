@@ -1,7 +1,5 @@
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -57,5 +55,22 @@ System.out.println("Wstawiono liczby:");
         //wypisywanie
         System.out.println("wylosowane bez powtorzen");
         System.out.println(ListaLosowychBezPowrorzen);
+        //losowanie bez powtorzen do zbioru
+        HashSet<Integer> zbiorLiczbLosowych = new HashSet<>();
+        while (zbiorLiczbLosowych.size()<6){
+            int liczba = (int)(Math.random()*100+1);
+            zbiorLiczbLosowych.add(liczba);
+        }
+        System.out.println(zbiorLiczbLosowych);
+
+        LinkedList<Integer> trafione = new LinkedList<>();
+        //trafione to elementy ktore wystepuja w wylosowanych i wpisanych
+        for (Integer wpisana: ListaLiczbWpisanych) {
+            if (zbiorLiczbLosowych.contains(wpisana)){
+                trafione.add(wpisana);
+            }
+            System.out.println("trafione:"+trafione);
+        }
     }
+
 }
